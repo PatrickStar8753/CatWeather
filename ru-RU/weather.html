@@ -1,0 +1,40 @@
+<!-- Файл гаджета. Является главным. Указывается в gadget.xml -->
+<html dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Weather v2</title>
+    <!-- Если у вас будут настройки, не забудьте подключить скрипт с настройками перед скриптом работы гаджета -->
+    <script src="js/settings.js" type="text/javascript" language="javascript"></script>
+    <link href="css/weather.css" rel="stylesheet" type="text/css"/>
+    <!-- json2.js необязателен, если вы не будете работать с API/JSON. -->
+    <script src="/js/json2.js" type="text/javascript" language="javascript"></script>
+    <script src="/js/weather.js" type="text/javascript" language="javascript"></script>
+  </head>
+  <!-- scroll и unselectable обязательны -->
+  <body id="WeatherGadget" onload="setup();" onunload="cleanup();" scroll="no" UNSELECTABLE="on">
+    <!-- https://learn.microsoft.com/en-us/previous-versions/windows/desktop/sidebar/background-element -->
+    <g:background id="WeatherBG" src="/images/glassS.png">
+    <!-- Так как у гаджета будет 2 размера, по умолчанию указывается маленький -->
+    <div id="weather_container" class="small">
+        <h1 id="city">Prepairing...</h1>
+        <!-- Flexbox или Grid не работают. Ориентируйтесь на совместимость с IE6/7 -->
+        <table id="details" style="table-layout: fixed;">
+            <tr rowspan="2">
+                <td align="right" class="details">
+                  <p id="airquality">O<sub>3</sub>: <span class="number">0</span></p>
+                  <p id="humidity">Humidity: <span class="number">0%</span></p>
+                  <p id="feelslike">Feels like: <span class="number">0°C</span></p>
+                </td>
+                <td align="center"><h1 id="gradus">0°C</h1></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><p id="weathername">Cool</p></td> 
+            </tr>
+            <tr>
+              <td colspan="2" align="center"><p id="lastupdated">Last updated: 00:00:00</p></td> 
+          </tr>
+        </table>
+    </div>
+    </g:background>
+  </body>
+</html>
